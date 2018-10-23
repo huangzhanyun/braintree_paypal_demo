@@ -22,6 +22,7 @@ if ($result->success || !is_null($result->transaction)) {
         $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
     }
 
-    $_SESSION["errors"] = $errorString;
+    //$_SESSION["errors"] = $errorString;
+    $smarty->assign('pay_error', $errorString);
     header("Location: index.php");
 }
