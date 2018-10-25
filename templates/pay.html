@@ -1,20 +1,13 @@
 {{include file="header.html"}}
 <div class="wrapper">
     <div class="checkout container">
-
-        <header>
-            <h1>Hi, <br>Let's test a transaction</h1>
-            <p>
-                Make a test payment with Braintree using PayPal or a card
-            </p>
-        </header>
-
         <form method="post" id="payment-form" action="checkout.php">
             <section>
                 <label for="amount">
-                    <span class="input-label">Amount</span>
-                    <div class="input-wrapper amount-wrapper">
-                        <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="1" disabled>
+                    <span class="input-label">支付信息</span>
+                    <div class="input-wrapper ">
+                        订单号：{{$payment.order_id}}<br/>
+                        待支付金额：{{$payment.amount}}
                         <input id="payment_data" name="payment_data" type="hidden" value="{{$payment_data}}">
                     </div>
                 </label>
@@ -25,7 +18,7 @@
             </section>
 
             <input id="nonce" name="payment_method_nonce" type="hidden" />
-            <button class="button" type="submit"><span>Test Transaction</span></button>
+            <button class="button" type="submit"><span>Transaction</span></button>
         </form>
     </div>
 </div>
@@ -46,6 +39,7 @@
             console.log('Create Error', createErr);
             return;
         }
+
         form.addEventListener('submit', function (event) {
             event.preventDefault();
 

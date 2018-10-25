@@ -1,0 +1,8 @@
+<html>
+<meta charset="utf-8">
+<body onload="document.getElementById('frm_callback').submit();">
+<form id="frm_callback" name="frm_callback" method="post" action="{{$callback.url}}">
+    <input type="hidden" name="status" value="{{$callback.status}}" readonly>
+    <input type="hidden" name="data" value="{{$callback.data}}" readonly>
+</form>
+</body>
