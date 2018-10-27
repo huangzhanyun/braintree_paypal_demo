@@ -6,8 +6,8 @@ $data = [
 ];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $public_key = file_get_contents('../includes/public.key');
-    $public_key_res = openssl_pkey_get_public($public_key);
+    $config = include 'callback/config.php';
+    $public_key_res = openssl_pkey_get_public($config['public_key']);
     $data_json = json_encode($data);
     openssl_public_encrypt($data_json, $encrypt, $public_key_res);
     $pay_data = urlencode(base64_encode($encrypt));
