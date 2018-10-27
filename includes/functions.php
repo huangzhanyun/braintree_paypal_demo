@@ -37,8 +37,9 @@ function checkSign($data, $key)
  */
 function private_encrypt($data)
 {
-    $private_key_file = file_get_contents( ROOT_PATH . 'includes/private.key');
-    $private_key = openssl_pkey_get_private($private_key_file, '');
+    $config = include ROOT_PATH . 'config.php';
+
+    $private_key = openssl_pkey_get_private($config['private_key'], '');
     openssl_private_encrypt($data, $result, $private_key);
     $private_key && openssl_free_key($private_key);
     return base64_encode($result);
@@ -52,8 +53,9 @@ function private_encrypt($data)
 function private_decrypt($data)
 {
     $result = '';
-    $private_key_file = file_get_contents( ROOT_PATH . 'includes/private.key');
-    $private_key = openssl_pkey_get_private($private_key_file, '');
+    $config = include ROOT_PATH . 'config.php';
+
+    $private_key = openssl_pkey_get_private($config['private_key'], '');
     $data = base64_decode($data);
     openssl_private_decrypt($data, $result, $private_key);
     $private_key && openssl_free_key($private_key);

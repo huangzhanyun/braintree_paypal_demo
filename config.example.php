@@ -1,4 +1,25 @@
------BEGIN PRIVATE KEY-----
+<?php
+/**
+ * Function:
+ * User: YUN
+ * Date: 2018/10/7 08:31
+ * Description:
+ */
+
+return [
+    'callback_url' => [
+        'success' => 'http://localhost:8998/callback/success.php',
+        'fail'    => 'http://localhost:8998/callback/fail.php',
+    ],
+
+    //  Braintree Config
+    'environment' => 'sandbox',
+    'merchantId' => 'fdnqf7czn532x8h9',
+    'publicKey' => 'b5n34mz98xjz8n72',
+    'privateKey' => 'e615f191a978f8aca0d2fcf6c3e3bc79',
+
+    // 数据加密私钥
+    'private_key' => '-----BEGIN PRIVATE KEY-----
 MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCuzzbltOOgxHIQ
 jX18ME+vhJV3EgBNq2DAdKXPmBdPkfZCah83bHWdqXsEo70bbjhcop5g5pkfgoiv
 EtP5t5QVHTPNpAMF+HU3lpQqefe0Wx9WRmps5ccxJQTF201uKMFnncoUdAnPaqXU
@@ -25,4 +46,5 @@ QbnacP0aLoikdzd5+iLf6/rwoeqlr5reAJykV3JVAoGBAMATEt7X8fhkNW7pt9sB
 +fa8bg6YGwCT3EEtctzk+s/O+adN5fT9gQ6gRO5pgId9cMtmf+7emvwO/pS4JqWW
 pT5FxF3qGovOpugC2tc/c0ljxndQ69qgq2adzVVsYVoQvnE1m6zy4O9Il9LDAfkI
 1T1uqiVdmTS3WfEHWuu3ok4H
------END PRIVATE KEY-----
+-----END PRIVATE KEY-----',
+];
